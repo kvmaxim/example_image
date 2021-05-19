@@ -9,7 +9,6 @@ use const app\models\common\PATH_TMP_FOLDER;
 
 class Image {
 
-//    private $tmp_file = '/var/www/svet_v_okne/svetvokne/web/files/tmp_file';
     private $tmp_file = '/tmp/tmp_file';
 
     public function getCountImagesForCurrentBuildingAndAnchor($id_building, $anchor)
@@ -82,8 +81,6 @@ class Image {
         if ($ext === "image/png") $ext = "png";
         if ($ext === "image/jpeg") $ext = "jpg";
         if ($ext === "image/svg+xml") $ext = "svg";
-//        if (strpos($buffer, '<svg viewBox') !== false) $ext= "svg";
-//        if (strpos($buffer, '<svg version="1.1" xmlns') !== false && strpos($buffer, 'viewBox') !== false) $ext= "svg";
         if (substr($buffer, 0 ,4) === '<svg' && strpos($buffer, 'viewBox') !== false) $ext ='svg';
         if (substr($buffer, 0 ,8) === '<ns0:svg' && strpos($buffer, 'viewBox') !== false) $ext ='svg';
 
